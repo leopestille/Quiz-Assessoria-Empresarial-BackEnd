@@ -6,7 +6,7 @@ export default async (requisition, response, next) => {
     const auth = requisition.headers.authorization;
 
     if (!auth) {
-        return response.status(401).json({ error: "Token não informado" });
+        return response.status(401).json({ message: "Token não informado" });
     }
 
     const [, token] = auth.split(" ");
@@ -16,6 +16,6 @@ export default async (requisition, response, next) => {
         requisition.userId = decoded.id;
         return next();
     } catch (err) {
-        return response.status(401).json({ error: "Token inválido" });
+        return response.status(401).json({ message: "Token inválido" });
     }
 };
