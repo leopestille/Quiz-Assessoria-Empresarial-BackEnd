@@ -2,10 +2,11 @@ import { Router } from "express";
 import UsersController from "./controllers/UsersController";
 import auth from "./middlewares/auth";
 import SessionsController from "./controllers/SessionsController";
+import verifySession from "./middlewares/verifySession";
 
 const routes = new Router();
 
-routes.post("/sessions", SessionsController.create);
+routes.post("/sessions", verifySession, SessionsController.create);
 routes.post("/users", UsersController.create);
 
 //routes.use(auth);
