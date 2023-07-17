@@ -2,29 +2,29 @@ import User from "../models/User";
 import { createPasswordHash } from "../services/Auth";
 
 class UsersController {
-    async index(requisition,response) {
+    async index(requisition, response) {
         try {
             const users = await User.find();
             return response.json(users);
         } catch (err) {
             console.error(err);
-            return response.status(500).json({ message: "Usuário não encontrado"})
+            return response.status(500).json({ message: "Usuário não encontrado" })
         }
     }
 
     async show(requisition, response) {
         try {
             const { id } = requisition.params;
-        const user = await User.findById(id);
+            const user = await User.findById(id);
 
-        if (!user) {
-            return response.status(404).json({ message: "Usuário não encontrado" });
-        }
+            if (!user) {
+                return response.status(404).json({ message: "Usuário não encontrado" });
+            }
 
-        return response.json(user);
+            return response.json(user);
         } catch (err) {
             console.error(err);
-            return response.status(500).json({ message: "Erro interno do Servidor"})
+            return response.status(500).json({ message: "Erro interno do Servidor" })
         }
     }
 
@@ -33,41 +33,47 @@ class UsersController {
             const { name, email, password } = requisition.body;
 
             const user = await User.findOne({ email });
-            
+
             if (user) {
                 return response.status(400).json({ message: `${user} já está cadastrado` });
             }
 
             const encryptedPassword = await createPasswordHash(password);
 
-            const newUser = await User.create({ name, email, password: encryptedPassword, sessionCount: 0});            
+            const newUser = await User.create({ name, email, password: encryptedPassword, sessionCount: 0, selections: [] });
 
             return response.status(201).json(newUser);
         } catch (err) {
             console.error(err);
-            return response.status(500).json({ message: "Usuário ou Senha inválidos"})
+            return response.status(500).json({ message: "Usuário ou Senha inválidos" })
         }
     }
 
     async update(requisition, response) {
         try {
             const { id } = requisition.params;
-            const { name, email, password } = requisition.body;
+            let updateData = requisition.body;
+
+            // Validate and process the received data as necessary
+            if (updateData.password) {
+                updateData.password = await createPasswordHash(updateData.password);
+            }
+
             const user = await User.findById(id);
 
             if (!user) {
                 return response.status(404).json({ message: "Usuário não encontrado" });
             }
 
-            const encryptedPassword = await createPasswordHash(password);
+            await user.updateOne(updateData);
 
-            await user.updateOne({ name, email, password: encryptedPassword });
             return response.status(200).json({ message: "Usuário atualizado com sucesso" });
         } catch (err) {
             console.error(err);
-            return response.status(500).json({ message: "Não foi possível atualizar o usuário"});
+            return response.status(500).json({ message: "Não foi possível atualizar o usuário" });
         }
     }
+
 
     async destroy(requisition, response) {
         try {
@@ -81,8 +87,8 @@ class UsersController {
 
             return response.status(200).json({ message: "Usuário deletado com sucesso" });
         } catch (error) {
-           console.error(err);
-           return response.status(500).json({ message: "Não foi possível deletar o usuário"}); 
+            console.error(err);
+            return response.status(500).json({ message: "Não foi possível deletar o usuário" });
         }
     }
 }

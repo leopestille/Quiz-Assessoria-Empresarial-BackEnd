@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema(
     {
         name: {
             type: String,
-            required: true,            
+            required: true,
         },
         email: {
             type: String,
@@ -16,17 +16,21 @@ const userSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true,
-        },        
+        },
         sessionCount: {
             type: Number,
             default: 0
 
-        }
-        
+        },
+        selections: [{
+            answer: String,
+            label: String
+        }]
+
     },
     {
-        timestamps: true,        
-    }    
+        timestamps: true,
+    }
 );
 
 export default mongoose.model('User', userSchema);
