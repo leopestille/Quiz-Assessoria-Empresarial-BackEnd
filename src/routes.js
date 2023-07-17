@@ -13,6 +13,6 @@ routes.use(auth);
 routes.get("/users", UsersController.index);
 routes.delete("/users/:id", UsersController.destroy);
 routes.get("/users/:id", UsersController.show);
-routes.put("/users/:id", UsersController.update);
+routes.patch("/users/:id", UsersController.update);
 
 export default routes;
