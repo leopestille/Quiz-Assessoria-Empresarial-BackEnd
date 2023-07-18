@@ -40,7 +40,7 @@ class UsersController {
 
             const encryptedPassword = await createPasswordHash(password);
 
-            const newUser = await User.create({ name, email, password: encryptedPassword, sessionCount: 0, selections: [] });
+            const newUser = await User.create({ name, email, password: encryptedPassword, sessionCount: 0, selections: [], pdfData: "" });
 
             return response.status(201).json(newUser);
         } catch (err) {
@@ -57,6 +57,18 @@ class UsersController {
             // Validate and process the received data as necessary
             if (updateData.password) {
                 updateData.password = await createPasswordHash(updateData.password);
+            }
+
+            if (updateData.pdfBase64) {
+                updateData.pdfData = updateData.pdfBase64;
+            }
+
+            if (updateData.name) {
+                updateData.name = updateData.name;
+            }
+
+            if (updateData.selections) {
+                updateData.selections = updateData.selections;
             }
 
             const user = await User.findById(id);

@@ -25,7 +25,10 @@ const userSchema = new mongoose.Schema(
         selections: [{
             answer: String,
             label: String
-        }]
+        }],
+        pdfData: {
+            type: String
+        }
 
     },
     {
