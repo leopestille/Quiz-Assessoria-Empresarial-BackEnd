@@ -5,6 +5,10 @@ import SessionsController from "./controllers/SessionsController";
 
 const routes = new Router();
 
+routes.get("/", (req, res) => {
+    res.send("API up");
+});
+
 routes.post("/sessions", SessionsController.create);
 routes.post("/users", UsersController.create);
 
