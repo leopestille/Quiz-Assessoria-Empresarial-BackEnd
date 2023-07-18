@@ -1,7 +1,7 @@
 import { Router } from "express";
-import UsersController from "./controllers/UsersController";
-import auth from "./middlewares/auth";
-import SessionsController from "./controllers/SessionsController";
+import UsersController from "./controllers/UsersController.mjs";
+import auth from "./middlewares/auth.mjs";
+import SessionsController from "./controllers/SessionsController.mjs";
 
 const routes = new Router();
 

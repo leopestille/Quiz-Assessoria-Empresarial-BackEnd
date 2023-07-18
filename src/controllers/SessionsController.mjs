@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
-import { checkPassword } from "../services/Auth";
-import authConfig from "../config/auth";
+import User from '../models/User.mjs';
+import { checkPassword } from "../services/Auth.mjs";
+import authConfig from "../config/auth.mjs";
 
 class SessionController {
     async create(requisition, response) {

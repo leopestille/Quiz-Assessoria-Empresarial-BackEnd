@@ -1,5 +1,5 @@
-import User from "../models/User";
-import { createPasswordHash } from "../services/Auth";
+import User from "../models/User.mjs";
+import { createPasswordHash } from "../services/Auth.mjs";
 
 class UsersController {
     async index(requisition, response) {
