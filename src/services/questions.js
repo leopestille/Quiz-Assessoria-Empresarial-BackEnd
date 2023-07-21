@@ -118,6 +118,47 @@ const data = [
         type: "choice",
         category: "Marketing"
     },
+    {
+        question: "Você tem um plano de transformação digital?",
+        options: [
+            { label: "Não", value: 8 },
+            { label: "Sim", value: 10 }
+        ],
+        type: "choice",
+        category: "Tecnologia"
+    },
+    {
+        question: "A Empresa está em conformidade com todas as regulamentações do setor?",
+        options: [
+            { label: "Não sei", value: 4 },
+            { label: "Nunca falei sobre isso meus advogados", value: 6 },
+            { label: "Acho que sim", value: 8 },
+            { label: "Sim", value: 10 }
+        ],
+        type: "choice",
+        category: "Jurídico"
+    },
+    {
+        question: "Você faz uso de algum software de contabilidade?",
+        options: [
+            { label: "Não", value: 8 },
+            { label: "Sim", value: 10 }
+        ],
+        type: "choice",
+        category: "Contábil"
+    },
+    {
+        question: "Você tem uma reserva de emergência financeira?",
+        options: [
+            { label: "Não", value: 2 },
+            { label: "Sim, até 3 meses", value: 4 },
+            { label: "Sim, até 6 meses", value: 6 },
+            { label: "Sim, até 1 ano", value: 8 },
+            { label: "Sim, mais de 1 ano", value: 10 }
+        ],
+        type: "choice",
+        category: "Financeiro"
+    }
 ];
 
 export default data;
