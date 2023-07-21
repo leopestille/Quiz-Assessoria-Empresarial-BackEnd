@@ -83,7 +83,9 @@ const data = [
             { label: "De 4 a 6", value: 6 },
             { label: "De 7 a 9 ", value: 8 },
             { label: "De 10 a 12", value: 10 },
-        ]
+        ],
+        type: "choice",
+        category: "Financeiro"
     },
     {
         question: "Você promove o desenvolvimento de competências dos funcionários?",
@@ -92,7 +94,29 @@ const data = [
             { label: "Realizo feedback 1x1", value: 6 },
             { label: "Promovo treinamentos até 3x ao ano", value: 8 },
             { label: "Promovo treinamento contínuo (possuímos um setor de T&D) ", value: 10 },
-        ]
+        ],
+        type: "choice",
+        category: "Recursos Humanos"
+    },
+    {
+        question: "Como é o processo de tomada de decisão estratégica?",
+        options: [
+            { label: "Feeling, sentimento ou impressão", value: 4 },
+            { label: "Necessidade imediata", value: 6 },
+            { label: "Com análise de dados", value: 8 },
+            { label: "Após análise de dados e verificação dos objetivos de longo prazo", value: 10 }
+        ],
+        type: "choice",
+        category: "Diretiva"
+    },
+    {
+        question: "Você faz uso de análise de dados para planejar suas campanhas de marketing?",
+        options: [
+            { label: "Não", value: 8 },
+            { label: "Sim, me fornecem os resultados", value: 10 }
+        ],
+        type: "choice",
+        category: "Marketing"
     },
 ];
 
