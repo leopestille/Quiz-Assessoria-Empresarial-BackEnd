@@ -255,6 +255,15 @@ const data = [
     ],
     type: "choice",
     category: "Recursos Humanos",
+  },
+  {
+    question: "Como a sua empresa lida com mudanças no ambiente externo?",
+    options: [
+        { label: "Reativamente", value: 2 },
+        { label: "Análise de Impacto e Ação", value: 4 },
+        { label: "Temos alguns planos de contenção de danos", value: 6 },
+        { label: "Temos uma comissão para esses assuntos", value: 8 },
+    ],
   }
 ];
 
