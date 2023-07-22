@@ -72,9 +72,9 @@ const data = [
   {
     question: "Você organiza e mantém seus registros contábeis?",
     options: [
-      { label: "Não", value: 6 },
-      { label: "Sim, em parte", value: 8 },
-      { label: "Sim, todos", value: 10 },
+      { label: "Não", value: 12 },
+      { label: "Sim, em parte", value: 16 },
+      { label: "Sim, todos", value: 20 },
     ],
     type: "choice",
     category: "Contábil",
@@ -155,8 +155,8 @@ const data = [
   {
     question: "Você faz uso de algum software de contabilidade?",
     options: [
-      { label: "Não", value: 8 },
-      { label: "Sim", value: 10 },
+      { label: "Não", value: 16 },
+      { label: "Sim", value: 20 },
     ],
     type: "choice",
     category: "Contábil",
@@ -185,8 +185,8 @@ const data = [
   {
     question: "Existe um plano de sucessão para a diretoria/Dono?",
     options: [
-        { label: "Não", value: 8 },
-        { label: "Sim", value: 10 },
+      { label: "Não", value: 8 },
+      { label: "Sim", value: 10 },
     ],
     type: "choice",
     category: "Diretiva",
@@ -194,10 +194,13 @@ const data = [
   {
     question: "Quem é o seu público alvo?",
     options: [
-        { label: "Não sei", value: 4 },
-        { label: "Conheço, mas não tenho registrado", value: 6 },
-        { label: "Conheço e os parâmetros NÃO são usados nas campanhas", value: 8 },
-        { label: "Conheço e os parâmetros são usados nas campanhas", value: 10 },
+      { label: "Não sei", value: 4 },
+      { label: "Conheço, mas não tenho registrado", value: 6 },
+      {
+        label: "Conheço e os parâmetros NÃO são usados nas campanhas",
+        value: 8,
+      },
+      { label: "Conheço e os parâmetros são usados nas campanhas", value: 10 },
     ],
     type: "choice",
     category: "Marketing",
@@ -205,9 +208,9 @@ const data = [
   {
     question: "Como é a segurança da informação na empresa?",
     options: [
-        { label: "Não faço", value: 6 },
-        { label: "Faço backup", value: 8 },
-        { label: "Uma empresa presta esse serviço", value: 10 },
+      { label: "Não faço", value: 6 },
+      { label: "Faço backup", value: 8 },
+      { label: "Uma empresa presta esse serviço", value: 10 },
     ],
     type: "choice",
     category: "Tecnologia",
@@ -215,22 +218,23 @@ const data = [
   {
     question: "Como é o processo de revisão de contratos na empresa?",
     options: [
-        { label: "Não utilizamos contratos", value: 4 },
-        { label: "Eu mesmo reviso", value: 6 },
-        { label: "Os advogados externos revisam", value: 8 },
-        { label: "O setor jurídico inteiro revisa", value: 10 },
+      { label: "Não utilizamos contratos", value: 4 },
+      { label: "Eu mesmo reviso", value: 6 },
+      { label: "Os advogados externos revisam", value: 8 },
+      { label: "O setor jurídico inteiro revisa", value: 10 },
     ],
     type: "choice",
     category: "Jurídico",
   },
   {
-    question: "Quais são os principais indicadores contábeis que você monitora?",
+    question:
+      "Quais são os principais indicadores contábeis que você monitora?",
     options: [
-        { label: "Nenhum", value: 2 },
-        { label: "Liquidez", value: 4 },
-        { label: "Rentabilidade", value: 6 },
-        { label: "Endividamento", value: 8 },
-        { label: "Liquidez + Rentabilidade + Endividamento", value: 10 },
+      { label: "Nenhum", value: 4 },
+      { label: "Liquidez", value: 8 },
+      { label: "Rentabilidade", value: 12 },
+      { label: "Endividamento", value: 16 },
+      { label: "Liquidez + Rentabilidade + Endividamento", value: 20 },
     ],
     type: "choice",
     category: "Contábil",
@@ -238,11 +242,11 @@ const data = [
   {
     question: "Como você controla suas despesas e receitas?",
     options: [
-        { label: "Não controlo", value: 2 },
-        { label: "Papel, caderneta ou etc", value: 4 },
-        { label: "Planilhas/Excel", value: 6 },
-        { label: "Aplicativo(NIBO, Organizze, conta azul)", value: 8 },
-        { label: "Software(ERP, Sankya, TOTV)", value: 10 },
+      { label: "Não controlo", value: 2 },
+      { label: "Papel, caderneta ou etc", value: 4 },
+      { label: "Planilhas/Excel", value: 6 },
+      { label: "Aplicativo(NIBO, Organizze, conta azul)", value: 8 },
+      { label: "Software(ERP, Sankya, TOTV)", value: 10 },
     ],
     type: "choice",
     category: "Financeiro",
@@ -250,8 +254,8 @@ const data = [
   {
     question: "Você mede o nível de satisfação dos funcionários?",
     options: [
-        { label: "Não", value: 8 },
-        { label: "Sim", value: 10 },        
+      { label: "Não", value: 8 },
+      { label: "Sim", value: 10 },
     ],
     type: "choice",
     category: "Recursos Humanos",
@@ -259,12 +263,179 @@ const data = [
   {
     question: "Como a sua empresa lida com mudanças no ambiente externo?",
     options: [
-        { label: "Reativamente", value: 2 },
-        { label: "Análise de Impacto e Ação", value: 4 },
-        { label: "Temos alguns planos de contenção de danos", value: 6 },
-        { label: "Temos uma comissão para esses assuntos", value: 8 },
+      { label: "Reativamente", value: 2 },
+      { label: "Análise de Impacto e Ação", value: 4 },
+      { label: "Temos alguns planos de contenção de danos", value: 6 },
+      { label: "Temos uma comissão para esses assuntos", value: 8 },
     ],
-  }
+    type: "choice",
+    category: "Diretiva",
+  },
+  {
+    question: "Quais são os seus principais canais de marketing?",
+    options: [
+      { label: "Não Sei", value: 2 },
+      { label: "Mídia Tradicional", value: 4 },
+      { label: "Email Marketing", value: 6 },
+      { label: "Publicidade Online", value: 8 },
+      { label: "Mídia Tradicional, E-mail, Online e Influência", value: 10 },
+    ],
+    type: "choice",
+    category: "Marketing",
+  },
+  {
+    question: "a Empresa possui uma equipe de TI interna ou terceirizada?",
+    options: [
+      { label: "Terceirizada", value: 8 },
+      { label: "Interna", value: 10 },
+    ],
+    type: "choice",
+    category: "Tecnologia",
+  },
+  {
+    question: "A empresa já enfrentou ou enfrenta algum processo legal?",
+    options: [
+      { label: "Sim, mais de 15 vezes", value: 2 },
+      { label: "Sim, até 15 vezes", value: 4 },
+      { label: "Sim, até 10 vezes", value: 6 },
+      { label: "Sim, menos de 5 vezes", value: 8 },
+      { label: "Não", value: 10 },
+    ],
+    type: "choice",
+    category: "Jurídico",
+  },
+  {
+    question: "Você possui uma auditoria contábil regular?",
+    options: [
+      { label: "Não", value: 8 },
+      { label: "Sim, anual", value: 12 },
+      { label: "Sim, semestral", value: 16 },
+      { label: "Sim, trimestral", value: 20 },
+    ],
+    type: "choice",
+    category: "Contábil",
+  },
+  {
+    question: "Quais são suas principais despesas?",
+    options: [
+      { label: "Não sei", value: 2 },
+      { label: "Pessoal(folha de pagamento)", value: 4 },
+      { label: "Produtos(estoque)", value: 6 },
+      { label: "Financeiro(empréstimos)", value: 8 },
+      { label: "Marketing", value: 10 },
+    ],
+    type: "choice",
+    category: "Financeiro",
+  },
+  {
+    question: "Como é feita a Avaliação de Desempenho?",
+    options: [
+      { label: "Não avalio", value: 6 },
+      { label: "Formulário impresso", value: 8 },
+      { label: "Software", value: 10 },
+    ],
+    type: "choice",
+    category: "Recursos Humanos",
+  },
+  {
+    question:
+      "Quais são as áreas com maiores desafios enfrentados pela diretoria/Dono?",
+    options: [
+      { label: "Estratégica", value: 4 },
+      { label: "Gestão de Pessoas", value: 6 },
+      { label: "Marketing", value: 8 },
+      { label: "Finanças", value: 10 },
+    ],
+    type: "choice",
+    category: "Diretiva",
+  },
+  {
+    question: "Como você mede o retorno sobre o investimento em marketing?",
+    options: [
+      { label: "Não meço", value: 4 },
+      { label: "ROI", value: 6 },
+      { label: "CAC", value: 8 },
+      { label: "ROI + LTV + CAC + CHURN", value: 10 },
+    ],
+    type: "choice",
+    category: "Marketing",
+  },
+  {
+    question: "Quais são os principais desafios tecnológicos da empresa?",
+    options: [
+      { label: "Implantar um sistema", value: 4 },
+      { label: "adesão dos funcionários a um novo sistema", value: 6 },
+      { label: "encontrar um software que me atenda", value: 8 },
+      { label: "ter um time inteiro cuidando disso", value: 10 },
+    ],
+    type: "choice",
+    category: "Tecnologia",
+  },
+  {
+    question: "Como é o processo de gestão dos riscos legais?",
+    options: [
+      { label: "Não temos", value: 2 },
+      { label: "Eu faço", value: 4 },
+      { label: "Os advogados externos fazem", value: 6 },
+      { label: "Os advogados internos fazem", value: 8 },
+      { label: "Temos um setor de compliance", value: 10 },
+    ],
+    type: "choice",
+    category: "Jurídico",
+  },
+  {
+    question:
+      "Você tem um processo de revisão regular para verificar possíveis erros e fraudes contábeis?",
+    options: [
+      { label: "Não", value: 16 },
+      { label: "Sim", value: 20 },
+    ],
+    type: "choice",
+    category: "Contábil",
+  },
+  {
+    question: "Você está satisfeito com o seu retorno sobre o investimento?",
+    options: [
+      { label: "Não sei qual é o retorno", value: 6 },
+      { label: "Sim", value: 8 },
+      { label: "Não", value: 10 },
+    ],
+    type: "choice",
+    category: "Financeiro",
+  },
+  {
+    question: "Qual é a taxa de rotatividade de funcionários(Turn over)?",
+    options: [
+      { label: "Não sei o que é", value: 2 },
+      { label: "Até 5%", value: 4 },
+      { label: "De 6 a 10%", value: 6 },
+      { label: "De 11 a 20%", value: 8 },
+      { label: "Acima de 21%", value: 10 },
+    ],
+    type: "choice",
+    category: "Recursos Humanos",
+  },
+  {
+    question:
+      "Como a empresa se posiciona em relação à responsabilidade social",
+    options: [
+      { label: "Nunca pensei sobre", value: 6 },
+      { label: "Temos algumas ações", value: 8 },
+      { label: "Considero irrelevante", value: 10 },
+    ],
+    type: "choice",
+    category: "Diretiva",
+  },
+  {
+    question: "Qual é a estratégia de branding da empresa?",
+    options: [
+      { label: "Não possuo", value: 2 },
+      { label: "Posicionamento de marca", value: 4 },
+      { label: "Identidade Visual", value: 6 },
+      { label: "Storytelling", value: 8 },
+      { label: "Experiência do cliente", value: 10 },
+    ],
+  },
 ];
 
 export default data;
