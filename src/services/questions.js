@@ -435,7 +435,305 @@ const data = [
       { label: "Storytelling", value: 8 },
       { label: "Experiência do cliente", value: 10 },
     ],
+    type: "choice",
+    category: "Marketing",
   },
+  {
+    question:
+      "A empresa faz uso de alguma tecnologia emergente? (IA, Blockchain)",
+    options: [
+      { label: "Não", value: 8 },
+      { label: "Sim", value: 10 },
+    ],
+    type: "choice",
+    category: "Tecnologia",
+  },
+  {
+    question: "A empresa está em dia com as obrigações fiscais?",
+    options: [
+      { label: "Não", value: 8 },
+      { label: "Sim", value: 10 },
+    ],
+    type: "choice",
+    category: "Jurídico",
+  },
+  {
+    question: "Qual é a sua estratégia de gestão de riscos financeiros?",
+    options: [
+      { label: "Não possuo", value: 2 },
+      { label: "Reserva de Emergência", value: 4 },
+      { label: "Saldo disponível (Capital de Giro)", value: 6 },
+      { label: "Margem para investimentos", value: 8 },
+      { label: "Investimento com liquidez imediata", value: 10 },
+    ],
+    type: "choice",
+    category: "Financeiro",
+  },
+  {
+    question: "Como a empresa lida com conflitos internos?",
+    options: [
+      {
+        label: "Não lida, deixamos as coisas se resolverem sozinhas",
+        value: 6,
+      },
+      { label: "E-mails e pronunciamentos", value: 8 },
+      { label: "Reuniões e feedbacks de alinhamento", value: 10 },
+    ],
+    type: "choice",
+    category: "Recursos Humanos",
+  },
+  {
+    question:
+      "Quais os principais indicadores de desempenho utilizados pela diretoria/Dono?",
+    options: [
+      { label: "Não utilizamos indicadores", value: 4 },
+      { label: "Financeiros", value: 6 },
+      { label: "Clientes atendidos", value: 8 },
+      { label: "Satisfação do cliente", value: 10 },
+    ],
+    type: "choice",
+    category: "Diretiva",
+  },
+  {
+    question: "O quanto sua empresa se diferencia em relação a concorrência?",
+    options: [
+      { label: "Não sei dizer", value: 4 },
+      { label: "Muito pouco", value: 6 },
+      { label: "Pouco", value: 8 },
+      { label: "Muita diferença", value: 10 },
+    ],
+    type: "choice",
+    category: "Marketing",
+  },
+  {
+    question: "Como é o processo de atualização e manutenção dos sistemas?",
+    options: [
+      { label: "Não fazemos", value: 6 },
+      { label: "Interno", value: 8 },
+      { label: "Externo", value: 10 },
+    ],
+    type: "choice",
+    category: "Tecnologia",
+  },
+  {
+    question: "Como é feita a proteção de propriedade intelectual da empresa?",
+    options: [
+      { label: "Não fazemos", value: 8 },
+      { label: "Estamos registrados", value: 10 },
+    ],
+    type: "choice",
+    category: "Jurídico",
+  },
+  {
+    question:
+      "Você faz uso de alguma ferramenta de controle financeiro? (contas a pagar, a receber, fluxo de caixa, cartões e boletos e etc.)",
+    options: [
+      { label: "Não controlo", value: 2 },
+      { label: "Papel, Caderneta, etc", value: 4 },
+      { label: "Planilhas, Excel", value: 6 },
+      { label: "Aplicativo (NIBO, Organizze, conta azul)", value: 8 },
+      { label: "Software (ERP, Sanka, TOTV)", value: 10 },
+    ],
+    type: "choice",
+    category: "Financeiro",
+  },
+  {
+    question: "Há algum programa de benefícios para os funcionários?",
+    options: [
+      { label: "Somente os exigidos por lei", value: 4 },
+      { label: "Até 3", value: 6 },
+      { label: "De 4 a 5", value: 8 },
+      { label: "Mais de 6", value: 10 },
+    ],
+    type: "choice",
+    category: "Recursos Humanos",
+  },
+  {
+    question: "Como a diretoria incentiva a inovação?",
+    options: [
+      { label: "Não há estratégia", value: 4 },
+      { label: "Palavras de afirmação", value: 6 },
+      { label: "Bônus em dinheiro", value: 8 },
+      { label: "Temos um setor de P & D", value: 10 },
+    ],
+    type: "choice",
+    category: "Diretiva",
+  },
+  {
+    question: "Como você acompanha as tendências de mercado?",
+    options: [
+      { label: "Não acompanho", value: 6 },
+      { label: "Terceirizada", value: 8 },
+      { label: "Interna", value: 10 },
+    ],
+    type: "choice",
+    category: "Marketing",
+  },
+  {
+    question:
+      "Você utiliza soluções de software de código aberto ou proprietário?",
+    options: [
+      { label: "Aberto", value: 8 },
+      { label: "Proprietário", value: 10 },
+    ],
+    type: "choice",
+    category: "Tecnologia",
+  },
+  {
+    question:
+      "A empresa tem políticas para garantir a conformidade com a legislação trabalhista?",
+    options: [
+      { label: "Não", value: 8 },
+      { label: "Sim", value: 10 },
+    ],
+    type: "choice",
+    category: "Jurídico",
+  },
+  {
+    question: "Como são tomadas as decisões de investimento na empresa?",
+    options: [
+      { label: "Tenho um pressentimento", value: 2 },
+      { label: "Pelo tempo de reclamação da equipe", value: 4 },
+      { label: "Para cumprir com a promessa que fiz", value: 6 },
+      { label: "Tenho planejamento de curto e médio prazo", value: 8 },
+      {
+        label: "Se está alinhado com o planejamento de longo prazo",
+        value: 10,
+      },
+    ],
+    type: "choice",
+    category: "Financeiro",
+  },
+  {
+    question: "Como é feita a comunicação interna?",
+    options: [
+      { label: "Somente verbal", value: 4 },
+      { label: "Verbal e escrita (e-mails e memorandos)", value: 6 },
+      { label: "Verbal, escrita, software de mensagem", value: 8 },
+      {
+        label: "Verbal, escrita, software de mensagem e reuniões gerais",
+        value: 10,
+      },
+    ],
+    type: "choice",
+    category: "Recursos Humanos",
+  },
+  {
+    question: "Qual é a visão de futuro da empresa?",
+    options: [
+      { label: "Não consigo imaginar", value: 4 },
+      { label: "Ruim", value: 6 },
+      { label: "Boa", value: 8 },
+      { label: "Ótima", value: 10 },
+    ],
+    type: "choice",
+    category: "Diretiva",
+  },
+  {
+    question: "Quais são suas estratégias de retenção de clientes?",
+    options: [
+      { label: "Não temos", value: 4 },
+      { label: "Programa de fidelidade", value: 6 },
+      { label: "Comunicação Personalizada", value: 8 },
+      { label: "Atendimento excepcional", value: 10 },
+    ],
+    type: "choice",
+    category: "Marketing",
+  },
+  {
+    question:
+      "A empresa possui um site ou aplicativo para interação com clientes?",
+    options: [
+      { label: "Não possui", value: 4 },
+      { label: "Possui site", value: 6 },
+      { label: "Possui site e  aplicativo de terceiros", value: 8 },
+      { label: "Possui site e aplicativo próprio", value: 10 },
+    ],
+    type: "choice",
+    category: "Tecnologia",
+  },
+  {
+    question:
+      "Como a empresa se prepara para mudanças na legislação que afetam o negócio?",
+    options: [
+      { label: "Não se prepara", value: 6 },
+      { label: "Acompanha pessoalmente as mudanças", value: 8 },
+      { label: "recebo relatórios jurídicos", value: 10 },
+    ],
+    type: "choice",
+    category: "Jurídico",
+  },
+  {
+    question:
+      "Qual é o seu processo para a realização do planejamento financeiro?",
+    options: [
+      { label: "Não planejo", value: 2 },
+      { label: "Planejo mas só eu sei o plano", value: 4 },
+      {
+        label: "Planejo terminar o mes com a maioria das contas pagas",
+        value: 6,
+      },
+      { label: "Já planejei mas nunca executei", value: 8 },
+      {
+        label:
+          "Tenho planejamento, processo de execução e modelos de acompanhamento",
+        value: 10,
+      },
+    ],
+    type: "choice",
+    category: "Financeiro",
+  },
+  {
+    question: "Qual é a estratégia para a formação de lideranças?",
+    options: [
+      { label: "Não existe", value: 4 },
+      { label: "Tempo de empresa", value: 6 },
+      { label: "Resultados financeiros", value: 8 },
+      { label: "Plano de cargos e carreiras", value: 10 },
+    ],
+    type: "choice",
+    category: "Recursos Humanos",
+  },
+  {
+    question: "A diretoria se envolve no dia a dia operacional da empresa?",
+    options: [
+      { label: "Não", value: 6 },
+      { label: "Sim, interfere o tempo inteiro", value: 8 },
+      { label: "Sim, interfere pontualmente", value: 10 },
+    ],
+    type: "choice",
+    category: "Diretiva",
+  },
+  {
+    question: 
+    "Você utiliza estratégias de marketing digital?",
+    options: [
+      { label: "Não", value: 8 },
+      { label: "Sim", value: 10 },
+    ],
+    type: "choice",
+    category: "Marketing",
+  },
+  {
+    question:
+      "A empresa possui alguma estratégia de automação de processos?",
+    options: [
+      { label: "Não", value: 8 },
+      { label: "Sim", value: 10},  
+    ],
+    type: "choice",
+    category: "Tecnologia",
+  },
+  {
+    question:
+    "A empresa possui um código de ética e conduta?",
+    options: [
+      { label: "Não", value: 8 },
+      { label: "Sim", value: 10},
+    ],
+    type: "choice",
+    category: "Jurídico",
+  }
 ];
 
 export default data;
