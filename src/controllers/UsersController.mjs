@@ -35,7 +35,7 @@ class UsersController {
             const user = await User.findOne({ email });
 
             if (user) {
-                return response.status(400).json({ message: `${user} já está cadastrado` });
+                return response.status(400).json({ message: "Usuário Já cadastrado." });
             }
 
             const encryptedPassword = await createPasswordHash(password);
