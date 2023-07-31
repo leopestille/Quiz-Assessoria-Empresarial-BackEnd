@@ -17,6 +17,8 @@ const userSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        passwordResetToken: String,
+        passwordResetExpires: Date,
         sessionCount: {
             type: Number,
             default: 0
