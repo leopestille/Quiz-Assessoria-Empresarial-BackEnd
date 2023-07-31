@@ -29,7 +29,7 @@ routes.post("/forgot-password", function(req, res) {
                   );
             }
             user.passwordResetToken = token;
-            user.passwordResetToken = Date.now() + 3600 * 1000;
+            user.passwordResetExpires = Date.now() + 3600 * 1000;
 
             user.save().then(() => {
                 const smtpTransport = nodemailer.createTransport({
