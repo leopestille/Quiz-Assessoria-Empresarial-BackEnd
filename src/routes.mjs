@@ -5,7 +5,6 @@ import SessionsController from "./controllers/SessionsController.mjs";
 import crypto from "node:crypto";
 import nodemailer from "nodemailer";
 import User from "./models/User.mjs";
-import config from "../src/config/reset.mjs";
 
 const routes = new Router();
 
@@ -35,13 +34,13 @@ routes.post("/forgot-password", function(req, res) {
                 const smtpTransport = nodemailer.createTransport({
                     service: "Gmail",
                     auth: {
-                        user: config.user,
-                        pass: config.password,                        
+                        user: "leonardopestille@gmail.com",
+                        pass: "Rhauane@103",                        
                     },
                 });
             const mailOptions = {
               to: user.email,
-              from: config.user,
+              from: "leonardopestille@hotmail.com",
               subject: "Reset de Senha do QUIZ RELATÓRIO DE NEGÓCIO",
               text:
                 "Você está recebendo esta mensagem porque você (ou outra pessoa) solicitou a redefinição de senha para sua conta.\n\n" +
