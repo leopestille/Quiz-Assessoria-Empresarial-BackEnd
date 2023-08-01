@@ -22,6 +22,8 @@ routes.post("/forgot-password", async function (req, res) {
   crypto.randomBytes(20, async function (err, buf) {
     
     const token = buf.toString("hex");
+    const expires = new Date();
+    expires.setHours(expires.getHours() + 1);
 
     try {
       const user = await User.findOne({ email: req.body.email });
@@ -31,6 +33,11 @@ routes.post("/forgot-password", async function (req, res) {
           .status(404)
           .send("Não existe nenhuma conta com esse endereço de e-mail.");
       }
+
+      user.passwordResetToken = token;
+      user.passwordResetExpires = expires;
+
+      await user.save();
 
       const msg = {
         to: user.email,
@@ -65,11 +72,10 @@ routes.post("/forgot-password", async function (req, res) {
   });
 });
 
-//routes.use(auth);
 
-routes.get("/users", UsersController.index);
-routes.delete("/users/:id", UsersController.destroy);
-routes.get("/users/:id", UsersController.show);
-routes.patch("/users/:id", UsersController.update);
+routes.get("/users", auth, UsersController.index);
+routes.delete("/users/:id", auth, UsersController.destroy);
+routes.get("/users/:id", auth, UsersController.show);
+routes.patch("/users/:id", auth, UsersController.update);
 
 export default routes;
