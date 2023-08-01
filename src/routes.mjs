@@ -10,6 +10,7 @@ import { createPasswordHash } from "./services/Auth.mjs";
 
 const routes = new Router();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const URL = process.env.FRONTEND_URL;
 
 routes.get("/", (req, res) => {
     res.send("API up");
@@ -48,7 +49,7 @@ routes.post("/forgot-password", async function (req, res) {
           "Você está recebendo esta mensagem porque você (ou outra pessoa) solicitou a redefinição de senha para sua conta.\n\n" +
           "Por favor, clique no seguinte link ou copie e cole-o em seu navegador para completar o processo:\n\n" +
           "http://" +
-          req.headers.host +
+          URL +
           "/reset/" +
           token +
           "\n\n" +
