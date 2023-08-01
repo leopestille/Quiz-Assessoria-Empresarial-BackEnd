@@ -6,6 +6,7 @@ import crypto from "node:crypto";
 import sgMail from "@sendgrid/mail";
 
 import User from "./models/User.mjs";
+import { createPasswordHash } from "./services/Auth.mjs";
 
 const routes = new Router();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -23,7 +24,7 @@ routes.post("/forgot-password", async function (req, res) {
     
     const token = buf.toString("hex");
     const expires = new Date();
-    expires.setHours(expires.getHours() + 1);
+    expires.setHours(expires.getHours() + 1 - 5);
 
     try {
       const user = await User.findOne({ email: req.body.email });
@@ -70,6 +71,35 @@ routes.post("/forgot-password", async function (req, res) {
       res.status(500).send("Ocorreu um erro ao procurar o usuário.");
     }
   });
+});
+
+routes.get("/reset/:token", async(req, res) => {
+    const token = req.params.token;
+    const newPassword = req.body.password;
+
+    try {
+      const user = await User.findOne({
+        passwordResetToken: token,
+        passwordResetExpires: { $gt: Date.now() },
+      });
+
+      if (!user) {
+        return res.status(400).send("Token inválido ou expirado.");
+      }
+
+      const hashedPassword = await User.createPasswordHash(newPassword);
+
+      user.password = hashedPassword;
+      user.passwordResetToken = undefined;
+      user.passwordResetExpires = undefined;
+
+      await user.save();
+
+      res.send("Senha alterada com sucesso.");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Erro ao redefinir a senha")
+    }
 });
 
 
