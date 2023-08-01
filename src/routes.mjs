@@ -97,7 +97,7 @@ routes.post("/reset/:token", async(req, res) => {
 
       res.send("Senha alterada com sucesso.");
     } catch (error) {
-      console.error(error);
+      console.error("Erro ao redefinir a senha:", error.message, error.stack);
       res.status(500).send("Erro ao redefinir a senha")
     }
 });
