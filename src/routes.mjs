@@ -73,7 +73,7 @@ routes.post("/forgot-password", async function (req, res) {
   });
 });
 
-routes.get("/reset/:token", async(req, res) => {
+routes.post("/reset/:token", async(req, res) => {
     const token = req.params.token;
     const newPassword = req.body.password;
 
