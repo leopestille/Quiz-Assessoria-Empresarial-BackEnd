@@ -65,7 +65,7 @@ routes.post("/forgot-password", async function (req, res) {
   });
 });
 
-routes.use(auth);
+//routes.use(auth);
 
 routes.get("/users", UsersController.index);
 routes.delete("/users/:id", UsersController.destroy);
