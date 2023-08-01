@@ -25,7 +25,7 @@ routes.post("/forgot-password", async function (req, res) {
     
     const token = buf.toString("hex");
     const expires = new Date();
-    expires.setHours(expires.getHours() + 1 - 5);
+    expires.setHours(expires.getHours() + 1);
 
     try {
       const user = await User.findOne({ email: req.body.email });
