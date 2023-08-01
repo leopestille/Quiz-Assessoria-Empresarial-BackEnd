@@ -48,8 +48,7 @@ routes.post("/forgot-password", async function (req, res) {
         text:
           "Você está recebendo esta mensagem porque você (ou outra pessoa) solicitou a redefinição de senha para sua conta.\n\n" +
           "Por favor, clique no seguinte link ou copie e cole-o em seu navegador para completar o processo:\n\n" +
-          "http://" +
-          URL +
+          URL +          
           "/reset/" +
           token +
           "\n\n" +
