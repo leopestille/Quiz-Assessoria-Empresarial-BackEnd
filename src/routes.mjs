@@ -80,7 +80,7 @@ routes.post("/reset/:token", async (req, res) => {
 
   try {
     
-    const hashedPassword = await User.createPasswordHash(newPassword);
+    const hashedPassword = await createPasswordHash(newPassword);
 
     
     const updateResult = await User.updateOne(
