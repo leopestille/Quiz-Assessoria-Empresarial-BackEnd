@@ -12,6 +12,7 @@ const routes = new Router();
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const URL = process.env.FRONTEND_URL;
 
+
 routes.get("/", (req, res) => {
     res.send("API up");
 });
@@ -73,33 +74,39 @@ routes.post("/forgot-password", async function (req, res) {
   });
 });
 
-routes.post("/reset/:token", async(req, res) => {
-    const token = req.params.token;
-    const newPassword = req.body.password;
+routes.post("/reset/:token", async (req, res) => {
+  const token = req.params.token;
+  const newPassword = req.body.password;
 
-    try {
-      const user = await User.findOne({
+  try {
+    
+    const hashedPassword = await User.createPasswordHash(newPassword);
+
+    
+    const updateResult = await User.updateOne(
+      {
         passwordResetToken: token,
         passwordResetExpires: { $gt: Date.now() },
-      });
-
-      if (!user) {
-        return res.status(400).send("Token inválido ou expirado.");
+      },
+      {
+        $set: {
+          password: hashedPassword,
+          passwordResetToken: undefined,
+          passwordResetExpires: undefined,
+        },
       }
+    );
 
-      const hashedPassword = await User.createPasswordHash(newPassword);
-
-      user.password = hashedPassword;
-      user.passwordResetToken = undefined;
-      user.passwordResetExpires = undefined;
-
-      await user.save();
-
-      res.send("Senha alterada com sucesso.");
-    } catch (error) {
-      console.error("Erro ao redefinir a senha:", error.message, error.stack);
-      res.status(500).send("Erro ao redefinir a senha")
+    
+    if (updateResult.nModified === 0) {
+      return res.status(400).send("Token inválido ou expirado.");
     }
+
+    res.send("Senha alterada com sucesso.");
+  } catch (error) {
+    console.error("Erro ao redefinir a senha:", error.message, error.stack);
+    res.status(500).send("Erro ao redefinir a senha");
+  }
 });
 
 
