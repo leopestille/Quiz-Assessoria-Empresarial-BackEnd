@@ -13,13 +13,19 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const URL = process.env.FRONTEND_URL;
 
 
+/* `routes.get("/", (req, res) => {
+    res.send("API up");
+});` is defining a route for the root endpoint ("/") of the API. When a GET request is made to the root endpoint, it will send the response "API up" back to the client. This is a simple way to check if the API is running and responding correctly. */
 routes.get("/", (req, res) => {
     res.send("API up");
 });
 
+/* `routes.post("/sessions", SessionsController.create);` is defining a route for creating a new session or logging in a user. When a POST request is made to the "/sessions" endpoint, it will call the `create` method of the `SessionsController` to handle the request and create a new session for the user.*/
 routes.post("/sessions", SessionsController.create);
+/* `routes.post("/users", UsersController.create);` is defining a route for creating a new user. When a POST request is made to the "/users" endpoint, it will call the `create` method of the `UsersController` to handle the request and create a new user. */
 routes.post("/users", UsersController.create);
 
+/* The `routes.post("/forgot-password", async function (req, res) { ... })` function is responsible for handling the forgot password functionality.*/
 routes.post("/forgot-password", async function (req, res) {
   
   crypto.randomBytes(20, async function (err, buf) {
@@ -74,6 +80,7 @@ routes.post("/forgot-password", async function (req, res) {
   });
 });
 
+/* The `routes.post("/reset/:token", async (req, res) => { ... })` function is responsible for handling the password reset functionality. */
 routes.post("/reset/:token", async (req, res) => {
   const token = req.params.token;
   const newPassword = req.body.password;
@@ -110,9 +117,13 @@ routes.post("/reset/:token", async (req, res) => {
 });
 
 
+/* `routes.get("/users", auth, UsersController.index);` is defining a route for retrieving all users. When a GET request is made to the "/users" endpoint, it will first call the `auth` middleware to authenticate the request. If the request is authenticated, it will then call the `index` method of the `UsersController` to handle the request and retrieve all users. */
 routes.get("/users", auth, UsersController.index);
+/* `routes.delete("/users/:id", auth, UsersController.destroy);` is defining a route for deleting a user. When a DELETE request is made to the "/users/:id" endpoint, it will first call the `auth` middleware to authenticate the request. If the request is authenticated, it will then call the `destroy` method of the `UsersController` to handle the request and delete the user with the specified `id`. */
 routes.delete("/users/:id", auth, UsersController.destroy);
+/* `routes.get("/users/:id", auth, UsersController.show);` is defining a route for retrieving a specific user by their `id`. When a GET request is made to the "/users/:id" endpoint, it will first call the `auth` middleware to authenticate the request. If the request is authenticated, it will then call the `show` method of the `UsersController` to handle the request and retrieve the user with the specified `id`. */
 routes.get("/users/:id", auth, UsersController.show);
+/* `routes.patch("/users/:id", auth, UsersController.update);` is defining a route for updating a user. When a PATCH request is made to the "/users/:id" endpoint, it will first call the `auth` middleware to authenticate the request. If the request is authenticated, it will then call the `update` method of the `UsersController` to handle the request and update the user with the specified `id`. */
 routes.patch("/users/:id", auth, UsersController.update);
 
 export default routes;
