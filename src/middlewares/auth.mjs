@@ -2,6 +2,7 @@ import jwt from "jsonwebtoken";
 import { promisify } from "util";
 import authConfig from "../config/auth.mjs";
 
+/* The code is exporting an asynchronous middleware function that is used for authentication in a Node.js application. */
 export default async (requisition, response, next) => {
     const auth = requisition.headers.authorization;
 

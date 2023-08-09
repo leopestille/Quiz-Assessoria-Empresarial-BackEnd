@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+/* The code is defining a Mongoose schema for a user object. The schema specifies the structure and data types of the user object. */
 const userSchema = new mongoose.Schema(
     {
         name: {
@@ -38,4 +39,5 @@ const userSchema = new mongoose.Schema(
     }
 );
 
+/* `export default mongoose.model('User', userSchema);` is exporting the Mongoose model for the user schema. */
 export default mongoose.model('User', userSchema);
