@@ -1,9 +1,9 @@
 import User from "../models/User.mjs";
 import { createPasswordHash } from "../services/Auth.mjs";
 
-/* The `UsersController` class is a controller class that handles various HTTP requests related to users. It contains several methods that correspond to different CRUD operations for users. */
+
 class UsersController {
-    /* The `async index(requisition, response)` function is an asynchronous function that handles the request to retrieve all users. */
+
     async index(requisition, response) {
         try {
             const users = await User.find();
@@ -14,7 +14,7 @@ class UsersController {
         }
     }
 
-    /* The `async show(requisition, response)` function is an asynchronous function that handles the request to retrieve a specific user by their ID. */
+
     async show(requisition, response) {
         try {
             const { id } = requisition.params;
@@ -31,7 +31,7 @@ class UsersController {
         }
     }
 
-    /* The `async create(requisition, response)` function is responsible for handling the request to create a new user. */
+
     async create(requisition, response) {
         try {
             const { name, email, password } = requisition.body;
@@ -53,13 +53,13 @@ class UsersController {
         }
     }
 
-    /* The `async update(requisition, response)` function is responsible for handling the request to update a user's information. */
+
     async update(requisition, response) {
         try {
             const { id } = requisition.params;
             let updateData = requisition.body;
 
-            // Validate and process the received data as necessary
+
             if (updateData.password) {
                 updateData.password = await createPasswordHash(updateData.password);
             }
@@ -92,7 +92,7 @@ class UsersController {
     }
 
 
-    /* The `async destroy(requisition, response)` function is responsible for handling the request to delete a user. */
+    
     async destroy(requisition, response) {
         try {
             const { id } = requisition.params;
