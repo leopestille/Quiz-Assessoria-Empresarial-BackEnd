@@ -9,7 +9,7 @@ class SessionController {
     async create(requisition, response) {
         const { email, password } = requisition.body;
 
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email: { $eq: email } });
 
         if (!user) {
             response.status(401).json({ message: "Usuário ou Senha Incorretos" });
